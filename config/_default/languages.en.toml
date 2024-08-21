@@ -12,6 +12,12 @@ title = "Congo"
   # mainSections = ["section1", "section2"]
   # description = "My awesome website"
 
+[params.hero]
+  # image = "img/hero.webp"
+  # title = "Title"
+  # headline = "I'm only human"
+  # description = "My awesome website"
+
 [params.author]
   # name = "Your name here"
   # image = "img/author.jpg"

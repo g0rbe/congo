@@ -20,10 +20,10 @@ enableImageWebp = true
 fingerprintAlgorithm = "sha256"
 
 [header]
-  layout = "basic" # valid options: basic, hamburger, hybrid, custom
-  # logo = "img/logo.jpg"
-  # logoDark = "img/dark-logo.jpg"
-  showTitle = true
+layout = "basic" # valid options: basic, hamburger, hybrid, custom
+# logo = "img/logo.jpg"
+# logoDark = "img/dark-logo.jpg"
+showTitle = true
 
 [footer]
   showCopyright = true
@@ -32,7 +32,7 @@ fingerprintAlgorithm = "sha256"
   showScrollToTop = true
 
 [homepage]
-  layout = "page" # valid options: page, profile, custom
+  layout = "page" # valid options: page, profile, hero, custom
   showRecent = false
   recentLimit = 5
 
