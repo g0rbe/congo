@@ -1,4 +1,4 @@
-<div class="flex items-center justify-center {{ if not .Site.Params.homepage.showRecent }}h-full{{ end }}">
+<div class="flex items-center justify-center {{ if .Site.Params.homepage.showRecent }}my-36{{ else }}h-full{{ end }}">
     <div class="flex flex-col sm:flex-row w-full items-center text-center sm:text-left">
         {{ $lazy := .Params.enableImageLazyLoading | default .Site.Params.enableImageLazyLoading | default true }}
         {{ $altText := ($.Site.Language.Params.Hero.title | default "Hero") }}
