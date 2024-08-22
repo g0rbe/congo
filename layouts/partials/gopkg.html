@@ -1,0 +1,5 @@
+{{ with .Params.gopkg }}
+   
+    <meta name="go-import" content="{{ .module }} git {{ .repository }}" />
+    <meta name="go-source" content="{{ .module }} {{ .repository }} {{ .repository }}/tree/main{/dir} {{ .repository }}/blob/main{/dir}/{file}#L{line}" />
+{{ end }}

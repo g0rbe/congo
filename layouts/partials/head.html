@@ -139,6 +139,8 @@
   {{ partial "vendor.html" . }}
   {{/* Analytics */}}
   {{ partial "analytics.html" . }}
+  {{/* Go Package */}}
+  {{ partial "gopkg.html" . }}
   {{/* Extend head - eg. for custom analytics scripts, etc. */}}
   {{ if templates.Exists "partials/extend-head.html" }}
     {{ partial "extend-head.html" . }}
