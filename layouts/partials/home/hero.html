@@ -1,9 +1,7 @@
 <article class="{{ if not .Site.Params.homepage.showRecent }}
     h-full
   {{ end }} flex flex-col items-center justify-center text-center">
-    {{ $align := .align | default "center" }}
-    <section class="not-prose {{ if eq $align " start" }} items-start {{ else if eq $align "end" }} items-end {{ else }}
-        items-center {{ end }} mb-3 flex flex-col">
+    <section class="not-prose items-center mb-3 flex flex-col">
         {{ $lazy := site.Params.enableImageLazyLoading | default true }}
         {{ $altText := (site.Language.Params.Hero.title | default "Hero") }}
         {{ with site.Language.Params.Hero.image }}
