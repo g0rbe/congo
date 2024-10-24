@@ -1,34 +1,34 @@
-<div class="flex items-center justify-center {{ if .Site.Params.homepage.showRecent }}my-36{{ else }}h-full{{ end }}">
-    <div class="flex flex-col sm:flex-row w-full items-center text-center sm:text-left">
-        {{ $lazy := .Params.enableImageLazyLoading | default .Site.Params.enableImageLazyLoading | default true }}
-        {{ $altText := ($.Site.Language.Params.Hero.title | default "Hero") }}
-        {{ with .Site.Language.Params.Hero.image }}
+<article class="{{ if not .Site.Params.homepage.showRecent }}
+    h-full
+  {{ end }} flex flex-col items-center justify-center text-center">
+    {{ $align := .align | default "center" }}
+    <section class="not-prose {{ if eq $align " start" }} items-start {{ else if eq $align "end" }} items-end {{ else }}
+        items-center {{ end }} mb-3 flex flex-col">
+        {{ $lazy := site.Params.enableImageLazyLoading | default true }}
+        {{ $altText := (site.Language.Params.Hero.title | default "Hero") }}
+        {{ with site.Language.Params.Hero.image }}
         {{ $heroImage := resources.Get . }}
         {{ if $heroImage }}
-        {{ $imgClass := "mb-4 sm:mb-0 sm:mr-4 h-auto w-36" }}
+        {{ $imgClass := "mb-2 h-auto w-36" }}
         {{ partial "picture.html" (dict "img" $heroImage "alt" $altText "class" $imgClass "lazy" $lazy) }}
         {{ end }}
         {{ end }}
-        <article class="flex flex-col justify-center">
-            <header class="mb-3">
-                <h1 class="text-3xl md:text-4xl font-extrabold">
-                    {{ .Site.Language.Params.Hero.title | default .Site.Title }}
-                </h1>
-                <div>
-                    <h2 class="mb-2 text-lg md:text-xl text-primary-400 dark:text-primary-500">
-                        {{ .Site.Language.Params.Hero.headline | markdownify | emojify }}
-                    </h2>
-                    <div class="mt-0 text-2xl sm:text-xl md:mt-1 md:text-2xl flex justify-center sm:justify-start">
-                        {{ partialCached "author-links.html" . }}
-                    </div>
-                </div>
-            </header>
-            <section class="prose prose-sm md:prose dark:prose-invert md:dark:prose-invert">
-                {{ .Content | emojify }}
-            </section>
-        </article>
-    </div>
-</div>
+        <h1 class="text-4xl font-extrabold">
+            {{ site.Language.Params.Hero.title | default site.Title }}
+
+        </h1>
+        {{ with site.Language.Params.Hero.headline }}
+        <h2 class="text-xl text-primary-400 dark:text-primary-500">
+            {{ . | markdownify | emojify }}
+        </h2>
+        {{ end }}
+        <div class="mt-1 text-2xl">
+            {{ partialCached "author-links.html" . }}
+        </div>
+    </section>
+
+    <section class="prose dark:prose-invert">{{ .Content | emojify }}</section>
+</article>
 <section>
     {{ partial "recent-articles.html" . }}
 </section>
